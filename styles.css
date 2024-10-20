@@ -1,0 +1,177 @@
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+  margin: 0;
+  padding: 20px;
+}
+
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  background: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+h1 {
+  text-align: center;
+  color: #333;
+  margin: 48px;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+li {
+  background: #fafafa;
+  margin: 10px 0;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+li.active {
+  background-color: #e8f5e9;
+}
+
+li span {
+  font-weight: bold;
+}
+
+.card-title {
+  display: flex;
+  justify-content: space-between;
+  font-size: 18px;
+}
+
+.card-subtitle {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+  font-size: 14px;
+}
+
+.submission-list {
+  display: none;
+  margin-top: 10px;
+}
+
+li.active .submission-list {
+  display: block;
+}
+
+/* Status color classes */
+.status-accepted {
+  color: #4CAF50;
+}
+
+.status-runtime-error {
+  color: #FF9800;
+}
+
+.status-wrong-answer {
+  color: #F44336;
+}
+
+.status-time-limit-exceeded {
+  color: #2196F3;
+}
+
+/* Updated vibrant colors */
+.status-weekly {
+  color: #7E57C2; /* Vibrant Purple */
+}
+
+.status-monthly {
+  color: #00897B; /* Bright Teal */
+}
+
+/* Submission item styling */
+.submission-item {
+  display: flex;
+  justify-content: space-between;
+  font-size: 12px;
+  margin: 5px 0;
+}
+
+.card-title span:last-child {
+  font-style: italic;
+  font-weight: normal;
+  font-size: 14px;
+  color: #555; /* Slightly muted color for a more subtle look */
+}
+
+.footer {
+  max-width: 800px;
+  margin: 0 auto;
+  background: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  text-align: center;
+}
+
+.footer-content {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.footer-branding p {
+  margin: 0;
+  font-size: 16px;
+}
+
+.footer-links {
+  margin: 10px 0;
+}
+
+.footer-links img {
+  width: 24px;
+  height: 24px;
+  vertical-align: middle;
+}
+
+.footer-info p {
+  margin: 5px 0;
+  font-size: 12px;
+  color: #555;
+}
+
+.footer-info a {
+  color: #4a4848; /* Grey color for the icons */
+  font-size: 12px;
+  transition: color 0.3s ease;
+}
+
+.footer-links a {
+  margin: 0 15px;
+  color: #4a4848; /* Grey color for the icons */
+  font-size: 24px;
+  transition: color 0.3s ease;
+}
+
+.footer-links a:hover {
+  color: #aaa; /* Lighter grey on hover */
+}
+
+.footer-info a:hover {
+  text-decoration: underline;
+}
+
+.solved-data {
+  display: block; /* Default to hidden */
+}
+
+@media (max-width: 600px) {
+  .solved-data {
+    display: none; /* Display block on mobile screens */
+  }
+}
