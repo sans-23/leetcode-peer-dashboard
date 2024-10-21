@@ -35,9 +35,7 @@ function createSubmissionList(submissions) {
       ${new Date(submission.timestamp * 1000).toLocaleString()} - 
       <strong>${submission.title}</strong> (${submission.lang}) 
       </span>
-      <span class="status-${submission.statusDisplay.toLowerCase().replace(/ /g, '-')}" >
-        Status: ${submission.statusDisplay}
-      </span>
+      <span class="status-${submission.statusDisplay.toLowerCase().replace(/ /g, '-')}" >${submission.statusDisplay}</span>
     </li>
   `).join('');
 }
@@ -84,13 +82,35 @@ function createUserListItem(userData, username, rank) {
   return li;
 }
 
+// Create problem list from all users' recent submissions
+function createProblemList(recentSubmissions) {
+  const problemList = document.getElementById('problem-list');
+  const allRecentSubmissions = recentSubmissions.map(submission => `
+    <li class="submission-item">
+      <span>
+      ${new Date(submission.timestamp * 1000).toLocaleString()} - 
+      <strong>${submission.title}</strong> (<i style="font-weight:normal">${submission.username}</i>)
+      </span>
+      <span class="status-${submission.statusDisplay.toLowerCase().replace(/ /g, '-')}" >${submission.statusDisplay}</span>
+    </li>
+  `).join('');
+  problemList.innerHTML = allRecentSubmissions;
+}
+
 // Fetch data for all users and sort them based on submissions in the last 24 hours
-async function displayRankedUsers() {
+async function displayRankedUsersAndProblems() {
+  const allRecentSubmissions = [];
   const userDataArray = await Promise.all(users.map(async (username) => {
     const userData = await fetchLeetCodeData(username);
     const recentSubmissions = getRecentSubmissions(userData.recentSubmissions);
     const weeklySubmissions = getWeeklySubmissions(userData.recentSubmissions);
     const monthlySubmissions = getMonthlySubmissions(userData.recentSubmissions);
+
+    // Collect recent submissions for problem list
+    recentSubmissions.forEach(submission => {
+      allRecentSubmissions.push({ ...submission, username });
+    });
+
     return { username, userData, recentSubmissions, weeklySubmissions, monthlySubmissions };
   }));
 
@@ -103,7 +123,10 @@ async function displayRankedUsers() {
     const userListItem = createUserListItem(user.userData, user.username, index + 1);
     userList.appendChild(userListItem);
   });
+
+  // Display the problem list
+  createProblemList(allRecentSubmissions);
 }
 
 // Initialize the dashboard
-displayRankedUsers();
+displayRankedUsersAndProblems();
