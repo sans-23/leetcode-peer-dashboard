@@ -1,4 +1,4 @@
-const users = ['sans-23', 'restart24', 'restart2024', 'tushika_', 'restart_ykm_21', 'revanthreddy0612', 'paras_bhai', 'Sonal_Tulasyan', 'chvishal281']; // Add more usernames to track here.
+const users = ['sans-23', 'restart24', 'restart2024', 'tushika_', 'restart_ykm_21', 'revanthreddy0612', 'paras_bhai', 'Sonal_Tulasyan', 'chvishal281', 'restart2k24']; // Add more usernames to track here.
 
 async function fetchLeetCodeData(username) {
   const response = await fetch(`https://leetcode-api-faisalshohag.vercel.app/${username}`);
