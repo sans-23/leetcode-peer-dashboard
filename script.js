@@ -112,7 +112,7 @@ function createProblemList(recentSubmissions) {
     <li class="submission-item">
       <span>
         ${new Date(submission.timestamp * 1000).toLocaleString()} - 
-        <a href="https://leetcode.com/problems/${submission.slug}" target="_blank" class="problem-link">
+        <a href="https://leetcode.com/problems/${submission.titleSlug}" target="_blank" class="problem-link">
           <strong>${submission.title}</strong>
         </a>
         (<i style="font-weight:normal">${submission.username}</i>)
@@ -154,6 +154,7 @@ async function displayRankedUsersAndProblems() {
 
   // Display the problem list
   createProblemList(allRecentSubmissions);
+  console.log(allRecentSubmissions);
 }
 
 // Initialize the dashboard
