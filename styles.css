@@ -19,7 +19,7 @@ body {
 h1 {
   text-align: center;
   color: #333;
-  margin: 48px;
+  margin: 36px;
 }
 
 ul {
@@ -37,7 +37,7 @@ li {
 }
 
 li.active {
-  background-color: #e8f5e9;
+  background-color: #e3f2fd;
 }
 
 li span {
@@ -55,6 +55,52 @@ li span {
   justify-content: space-between;
   margin-top: 10px;
   font-size: 14px;
+}
+
+.user-rank {
+  color: #555; /* A soft, neutral gray */
+  font-size: 1rem; /* Slightly smaller size for balance */
+  font-weight: bold;
+  padding-right: 10px; /* Adds some space between rank and solved data */
+  margin-bottom: 5px; /* Adds spacing for readability */
+}
+
+.tabs {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.tab {
+  padding: 10px 20px;
+  cursor: pointer;
+  font-weight: bold;
+  color: #555;
+  border-bottom: 2px solid transparent;
+}
+
+.tab.active {
+  color: #000;
+  border-bottom: 2px solid #000;
+}
+
+.panel-content {
+  display: none;
+}
+
+.panel-content.active {
+  display: block;
+}
+
+/* CSS for styling problem links */
+.problem-link {
+  text-decoration: none;
+  color: #007acc; /* LeetCode-like blue color */
+  font-weight: bold;
+}
+
+.problem-link:hover {
+  color: #005fa3; /* Darker blue on hover */
 }
 
 .submission-list {
